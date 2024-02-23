@@ -23,6 +23,11 @@ screen = pygame.display.set_mode((WIDTH,HEIGHT))
 clock = pygame.time.Clock()
 running = True
 
+
+# snake position
+
+snake_pos = pygame.Vector2(screen.get_width()/2, screen.get_height()/2)
+
 while running:
     
     for event in pygame.event.get():
@@ -31,6 +36,14 @@ while running:
             
     screen.fill("green")
     
+    
+    # Generates a bits on the screen
+    # TODO: Randomly generate it on the screen
+    food = pygame.Rect(screen.get_width()/2, screen.get_height()/2,10,10)
+    pygame.draw.rect(screen, "red", food, 40)
+    
     pygame.display.flip()
     clock.tick(60)
+    
+    
 pygame.quit()
